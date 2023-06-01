@@ -80,9 +80,8 @@ class YaUploader:
                 print('Ошибка. Ключ y_disk не действителен')
                 exit()
 
-    def _progress_bar(self, steps: int, min_v: int, max_v: int = 1, pause: float = 0.01) -> None:
+    def _progress_bar(self, steps: int, graph_count: int=20, min_v: int=0, max_v: int=100, pause: float=0.01) -> None:
         step_size = (max_v - min_v) / steps
-        graph_count = 20
         a = 100 / graph_count
         c = (max_v - min_v) / a
         d = graph_count
@@ -134,7 +133,7 @@ class YaUploader:
             response.raise_for_status()
             result_list.append({"file_name": file_name, "size": el['sizes']})
             # Запуск прогресс-бара для каждой итерации
-            self._progress_bar(steps=30, min_v=min_tbv, max_v=max_tbv, pause=0.01)
+            self._progress_bar(steps=30, graph_count=20, min_v=min_tbv, max_v=max_tbv, pause=0.01)
             tb_dif_round = int(100 - tb_step * (len(photos_data[1]) - i - 2))
             min_tbv = max_tbv
             max_tbv = tb_dif_round
@@ -142,12 +141,12 @@ class YaUploader:
 
 if __name__ == '__main__':
     load_dotenv()
-    user_name_id = input('// Введите id пользователя: ')
-    token_vk = input('// Введите token_vk: ')
-    token_y_disk = input('// Введите token_y_disk: ')
-    # user_name_id = open_t('number.txt')
-    # token_vk = open_t('t_2.txt')
-    # token_y_disk = open_t('t_1.txt')
+    # user_name_id = input('// Введите id пользователя: ')
+    # token_vk = input('// Введите token_vk: ')
+    # token_y_disk = input('// Введите token_y_disk: ')
+    user_name_id = open_t('number.txt')
+    token_vk = open_t('t_2.txt')
+    token_y_disk = open_t('t_1.txt')
     # token_vk = os.getenv('VK_API_TOKEN')
     # token_y_disk = os.getenv('Y_DISK_API_TOKEN')
     count = abs(int(input('// Введите число загружаемых фотографий (для загрузки всех - 0): ')))
