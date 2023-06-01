@@ -141,12 +141,12 @@ class YaUploader:
 
 if __name__ == '__main__':
     load_dotenv()
-    # user_name_id = input('// Введите id пользователя: ')
-    # token_vk = input('// Введите token_vk: ')
-    # token_y_disk = input('// Введите token_y_disk: ')
-    user_name_id = open_t('number.txt')
-    token_vk = open_t('t_2.txt')
-    token_y_disk = open_t('t_1.txt')
+    user_name_id = input('// Введите id пользователя: ')
+    token_vk = input('// Введите token_vk: ')
+    token_y_disk = input('// Введите token_y_disk: ')
+    # user_name_id = open_t('number.txt')
+    # token_vk = open_t('t_2.txt')
+    # token_y_disk = open_t('t_1.txt')
     # token_vk = os.getenv('VK_API_TOKEN')
     # token_y_disk = os.getenv('Y_DISK_API_TOKEN')
     count = abs(int(input('// Введите число загружаемых фотографий (для загрузки всех - 0): ')))
